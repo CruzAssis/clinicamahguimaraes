@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script>(function(){try{var t=localStorage.getItem('mg-theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})()</script>
+<meta name="robots" content="noindex">
+<title>Informações da Clínica — Mah Guimarães</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#B8955A; --gold-dk:#8A6E3C; --rose:#C9C1B4; --rose-pale:#F4F1EB;
+  --cream:#FBF8F4; --cream2:#F3ECE3; --line:#E4DBD0;
+  --ink:#2A2422; --ink2:#5A504B; --ink3:#8C817A; --green:#3D6B4A; --wa:#25D366;
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Jost',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);
+  line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;padding-bottom:120px}
+.wrap{max-width:600px;margin:0 auto;padding:0 18px}
+
+/* topo */
+.topo{text-align:center;padding:38px 0 24px}
+.selo{width:56px;height:56px;border-radius:50%;margin:0 auto 16px;
+  background:linear-gradient(140deg,var(--rose),var(--gold));display:grid;
+  place-items:center;color:#fff;font-family:var(--serif);font-size:20px}
+.topo h1{font-family:var(--serif);font-size:30px;font-weight:600;line-height:1.2;margin-bottom:10px}
+.topo p{color:var(--ink2);font-size:15.5px;max-width:440px;margin:0 auto}
+
+/* barra de progresso fixa */
+.barra-wrap{position:sticky;top:0;z-index:50;background:var(--cream);
+  padding:10px 0 8px;border-bottom:1px solid var(--line);margin-bottom:24px}
+.barra{height:6px;background:var(--cream2);border-radius:100px;overflow:hidden}
+.barra-fill{height:100%;background:linear-gradient(90deg,var(--rose),var(--gold));
+  width:0%;transition:width .35s ease;border-radius:100px}
+.barra-txt{display:flex;justify-content:space-between;font-size:12px;
+  color:var(--ink3);margin-top:6px}
+.salvo{color:var(--green);opacity:0;transition:opacity .3s}
+.salvo.on{opacity:1}
+
+/* seções */
+.sec{background:#fff;border:1px solid var(--line);border-radius:16px;
+  padding:24px 20px;margin-bottom:18px}
+.sec-num{font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold-dk);font-weight:600;margin-bottom:5px}
+.sec h2{font-family:var(--serif);font-size:23px;font-weight:600;margin-bottom:6px}
+.sec>p.intro{font-size:14.5px;color:var(--ink2);margin-bottom:20px;
+  padding-bottom:16px;border-bottom:1px solid var(--line)}
+.sec.urgente{border:2px solid var(--rose)}
+.sec.urgente .sec-num{color:var(--rose)}
+
+/* campos */
+.campo{margin-bottom:20px}
+.campo:last-child{margin-bottom:0}
+label{display:block;font-size:14.5px;font-weight:500;color:var(--ink);margin-bottom:4px}
+.ajuda{font-size:13px;color:var(--ink3);margin-bottom:8px;line-height:1.45}
+input[type=text],textarea{width:100%;font-family:var(--sans);font-size:16px;
+  color:var(--ink);background:var(--cream);border:1px solid var(--line);
+  border-radius:10px;padding:12px 14px;outline:none;transition:border-color .2s,background .2s}
+input[type=text]:focus,textarea:focus{border-color:var(--gold);background:#fff}
+textarea{resize:vertical;min-height:88px;line-height:1.55}
+.opcoes{display:flex;gap:8px;flex-wrap:wrap}
+.op{flex:1;min-width:90px}
+.op input{position:absolute;opacity:0;pointer-events:none}
+.op label{display:block;text-align:center;font-size:14px;font-weight:400;
+  padding:11px 8px;border:1px solid var(--line);border-radius:10px;
+  background:var(--cream);cursor:pointer;margin:0;transition:all .18s}
+.op input:checked+label{background:var(--rose-pale);border-color:var(--rose);
+  color:var(--gold-dk);font-weight:600}
+
+/* rodapé fixo */
+.envio{position:fixed;bottom:0;left:0;right:0;background:#fff;
+  border-top:1px solid var(--line);padding:14px 18px;
+  box-shadow:0 -4px 20px rgba(0,0,0,.06);z-index:60}
+.envio-in{max-width:600px;margin:0 auto;display:flex;gap:10px;align-items:center}
+.btn{flex:1;display:block;text-align:center;border:none;font-family:var(--sans);
+  font-size:15.5px;font-weight:600;padding:15px 12px;border-radius:100px;
+  cursor:pointer;text-decoration:none;transition:transform .12s,opacity .2s}
+.btn:active{transform:scale(.98)}
+.btn-wa{background:var(--wa);color:#fff}
+.btn-copiar{background:var(--cream2);color:var(--ink2);flex:0 0 auto;padding:15px 20px}
+.aviso{font-size:12.5px;color:var(--ink3);text-align:center;margin-top:8px}
+
+.toast{position:fixed;bottom:96px;left:50%;transform:translateX(-50%) translateY(12px);
+  background:var(--ink);color:#fff;font-size:14px;padding:12px 22px;border-radius:100px;
+  opacity:0;pointer-events:none;transition:all .3s;z-index:70;white-space:nowrap}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+.assin{text-align:center;font-size:13px;color:var(--ink3);padding:20px 0 10px;line-height:1.8}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="topo">
+    <div class="selo">mg</div>
+    <h1>Informações da clínica</h1>
+    <p>Maressa, é isso que eu preciso pra montar tudo. Pode preencher aos poucos — <strong>o que você escrever fica salvo</strong> mesmo se fechar a página.</p>
+  </div>
+
+  <div class="barra-wrap">
+    <div class="barra"><div class="barra-fill" id="fill"></div></div>
+    <div class="barra-txt">
+      <span id="conta">0 de 20 preenchidos</span>
+      <span class="salvo" id="salvo">salvo ✓</span>
+    </div>
+  </div>
+
+  <!-- PARTE 1 -->
+  <div class="sec urgente">
+    <div class="sec-num">Parte 1 · começa por aqui</div>
+    <h2>Acessos</h2>
+    <p class="intro">Essa é a parte que me destrava — sem ela eu não começo. <strong>Nenhuma pede senha.</strong></p>
+
+    <div class="campo">
+      <label>Você já me adicionou como gerente no Google?</label>
+      <p class="ajuda">Perfil da clínica → Usuários → Adicionar → <strong>shelderdouglasdacruz@gmail.com</strong> → Gerente</p>
+      <div class="opcoes">
+        <span class="op"><input type="radio" name="q_google" id="g1" value="Sim, já adicionei"><label for="g1">Já fiz</label></span>
+        <span class="op"><input type="radio" name="q_google" id="g2" value="Ainda não"><label for="g2">Ainda não</label></span>
+        <span class="op"><input type="radio" name="q_google" id="g3" value="Preciso de ajuda"><label for="g3">Preciso de ajuda</label></span>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label>Seu Instagram está como conta profissional?</label>
+      <p class="ajuda">Instagram → Configurações → Tipo de conta e ferramentas</p>
+      <div class="opcoes">
+        <span class="op"><input type="radio" name="q_prof" id="p1" value="Sim"><label for="p1">Sim</label></span>
+        <span class="op"><input type="radio" name="q_prof" id="p2" value="Não"><label for="p2">Não</label></span>
+        <span class="op"><input type="radio" name="q_prof" id="p3" value="Não sei"><label for="p3">Não sei</label></span>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label>Ele está ligado a uma página do Facebook?</label>
+      <p class="ajuda">É o que permite o robô funcionar. Se não estiver, eu te mando o passo a passo — leva 5 minutos</p>
+      <div class="opcoes">
+        <span class="op"><input type="radio" name="q_face" id="f1" value="Sim"><label for="f1">Sim</label></span>
+        <span class="op"><input type="radio" name="q_face" id="f2" value="Não"><label for="f2">Não</label></span>
+        <span class="op"><input type="radio" name="q_face" id="f3" value="Não sei"><label for="f3">Não sei</label></span>
+      </div>
+    </div>
+
+    <div class="campo">
+      <label>Onde você registrou o domínio clinicamahguimaraes.com.br?</label>
+      <p class="ajuda">Registro.br, Hostgator, GoDaddy, Locaweb… Só o nome já basta, eu te digo o que mudar lá dentro</p>
+      <input type="text" id="q_dominio" placeholder="Ex: Registro.br">
+    </div>
+  </div>
+
+  <!-- PARTE 2 -->
+  <div class="sec">
+    <div class="sec-num">Parte 2</div>
+    <h2>Dados da clínica</h2>
+    <p class="intro">Isso vai pro site e pro Google. Precisa estar igual nos dois lugares — é assim que o Google confia no perfil.</p>
+
+    <div class="campo">
+      <label>Horário de segunda a sexta</label>
+      <input type="text" id="q_hor1" placeholder="Ex: das 13h às 20h">
+    </div>
+    <div class="campo">
+      <label>Sábado</label>
+      <input type="text" id="q_hor2" placeholder="Ex: das 9h às 15h — ou 'fechado'">
+    </div>
+    <div class="campo">
+      <label>Domingo e feriados</label>
+      <input type="text" id="q_hor3" placeholder="Ex: fechado">
+    </div>
+    <div class="campo">
+      <label>Endereço completo</label>
+      <p class="ajuda">Com número, complemento e CEP</p>
+      <textarea id="q_end" placeholder="Rua, número, complemento, bairro, cidade, CEP"></textarea>
+    </div>
+    <div class="campo">
+      <label>Telefone da clínica</label>
+      <input type="text" id="q_tel" placeholder="(11) 0000-0000">
+    </div>
+    <div class="campo">
+      <label>WhatsApp oficial</label>
+      <p class="ajuda">O número que recebe as pacientes — é pra onde o robô vai mandar</p>
+      <input type="text" id="q_wpp" placeholder="(11) 90000-0000">
+    </div>
+    <div class="campo">
+      <label>Seu nome completo, como aparece no conselho</label>
+      <input type="text" id="q_nome" placeholder="Maressa ...">
+    </div>
+    <div class="campo">
+      <label>Número do COREN</label>
+      <p class="ajuda">Precisa aparecer no site — é exigência do conselho</p>
+      <input type="text" id="q_coren" placeholder="COREN-SP 000.000">
+    </div>
+    <div class="campo">
+      <label>Qual e-mail você quer no domínio?</label>
+      <p class="ajuda">Ex: contato@, agendamento@, maressa@</p>
+      <input type="text" id="q_email" placeholder="contato@clinicamahguimaraes.com.br">
+    </div>
+  </div>
+
+  <!-- PARTE 3 -->
+  <div class="sec">
+    <div class="sec-num">Parte 3</div>
+    <h2>Procedimentos e conteúdo</h2>
+    <p class="intro">Essa parte é a que dá alma ao site e ao robô. <strong>Pode responder por áudio no WhatsApp se for mais fácil</strong> — eu transcrevo.</p>
+
+    <div class="campo">
+      <label>O que você faz hoje na clínica</label>
+      <p class="ajuda">Lista tudo, mesmo o que parece pequeno</p>
+      <textarea id="q_proc" placeholder="Harmonização glútea, harmonização facial, botox, criolipólise, limpeza de pele, enzimas..."></textarea>
+    </div>
+    <div class="campo">
+      <label>O que você <strong>não</strong> faz mais</label>
+      <p class="ajuda">Importante pro robô não oferecer algo que você parou de fazer</p>
+      <textarea id="q_naofaz" placeholder="Se não tiver nada, escreve 'nada'"></textarea>
+    </div>
+    <div class="campo">
+      <label>Qual produto você usa na harmonização glútea?</label>
+      <p class="ajuda">Foi a pergunta que você fez ao robô e ele não soube responder 😊</p>
+      <input type="text" id="q_produto" placeholder="Nome do produto ou marca">
+    </div>
+    <div class="campo">
+      <label>O que é o Método MAF, nas suas palavras</label>
+      <p class="ajuda">Pra que serve, pra quem é, quantas sessões, o que a paciente sente</p>
+      <textarea id="q_mafe" placeholder="Escreve do seu jeito, sem se preocupar com formatação"></textarea>
+    </div>
+    <div class="campo">
+      <label>O que é o Método R.A.R., nas suas palavras</label>
+      <textarea id="q_rar" placeholder="Escreve do seu jeito"></textarea>
+    </div>
+    <div class="campo">
+      <label>As perguntas que mais chegam no direct</label>
+      <p class="ajuda">E como você responde hoje. É isso que o robô vai aprender a dizer</p>
+      <textarea id="q_faq" placeholder="Ex: 'quanto custa?' — respondo que depende da avaliação..."></textarea>
+    </div>
+    <div class="campo">
+      <label>Tem alguma coisa que o robô <strong>não</strong> deve dizer?</label>
+      <p class="ajuda">Assunto, palavra, promessa — qualquer coisa que você não quer ver escrito no seu nome</p>
+      <textarea id="q_nunca" placeholder="Se não tiver nada, escreve 'nada'"></textarea>
+    </div>
+  </div>
+
+  <div class="assin">
+    Qualquer dúvida é só me chamar<br>
+    <strong>Shelder</strong> · (11) 95436-5533
+  </div>
+
+</div>
+
+<div class="envio">
+  <div class="envio-in">
+    <button class="btn btn-copiar" id="btnCopiar">Copiar</button>
+    <button class="btn btn-wa" id="btnEnviar">Enviar pro Shelder</button>
+  </div>
+  <div class="aviso">Não precisa preencher tudo de uma vez — fica salvo sozinho</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  var CHAVE = 'mahguimaraes_form_v1';
+  var TEL = '5511954365533';
+
+  var perguntas = [
+    ['q_google','Já me adicionou como gerente no Google'],
+    ['q_prof','Instagram é conta profissional'],
+    ['q_face','Instagram ligado a página do Facebook'],
+    ['q_dominio','Onde registrou o domínio'],
+    ['q_hor1','Horário seg a sex'],
+    ['q_hor2','Sábado'],
+    ['q_hor3','Domingo e feriados'],
+    ['q_end','Endereço completo'],
+    ['q_tel','Telefone da clínica'],
+    ['q_wpp','WhatsApp oficial'],
+    ['q_nome','Nome completo'],
+    ['q_coren','COREN'],
+    ['q_email','E-mail do domínio'],
+    ['q_proc','Procedimentos que faz'],
+    ['q_naofaz','Não faz mais'],
+    ['q_produto','Produto da harmonização glútea'],
+    ['q_mafe','Método MAF'],
+    ['q_rar','Método R.A.R.'],
+    ['q_faq','Perguntas frequentes no direct'],
+    ['q_nunca','O robô nunca deve dizer']
+  ];
+
+  function pegar(id){
+    var el = document.getElementById(id);
+    if(el) return el.value.trim();
+    var r = document.querySelector('input[name="'+id+'"]:checked');
+    return r ? r.value : '';
+  }
+  function definir(id, val){
+    if(!val) return;
+    var el = document.getElementById(id);
+    if(el){ el.value = val; return; }
+    var rs = document.querySelectorAll('input[name="'+id+'"]');
+    for(var i=0;i<rs.length;i++){ if(rs[i].value === val) rs[i].checked = true; }
+  }
+
+  var toastTimer;
+  function toast(msg){
+    var t = document.getElementById('toast');
+    t.textContent = msg; t.classList.add('on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ t.classList.remove('on'); }, 2200);
+  }
+
+  var salvoTimer;
+  function salvar(){
+    var dados = {};
+    perguntas.forEach(function(p){ dados[p[0]] = pegar(p[0]); });
+    try{ localStorage.setItem(CHAVE, JSON.stringify(dados)); }catch(e){}
+    var s = document.getElementById('salvo');
+    s.classList.add('on');
+    clearTimeout(salvoTimer);
+    salvoTimer = setTimeout(function(){ s.classList.remove('on'); }, 1600);
+    atualizar();
+  }
+
+  function atualizar(){
+    var n = 0;
+    perguntas.forEach(function(p){ if(pegar(p[0])) n++; });
+    var pct = Math.round(n / perguntas.length * 100);
+    document.getElementById('fill').style.width = pct + '%';
+    document.getElementById('conta').textContent = n + ' de ' + perguntas.length + ' preenchidos';
+  }
+
+  function carregar(){
+    var bruto;
+    try{ bruto = localStorage.getItem(CHAVE); }catch(e){}
+    if(!bruto) { atualizar(); return; }
+    try{
+      var d = JSON.parse(bruto);
+      perguntas.forEach(function(p){ definir(p[0], d[p[0]]); });
+    }catch(e){}
+    atualizar();
+  }
+
+  function montarTexto(){
+    var linhas = ['*INFORMAÇÕES — CLÍNICA MAH GUIMARÃES*',''];
+    var faltando = [];
+    perguntas.forEach(function(p){
+      var v = pegar(p[0]);
+      if(v){ linhas.push('*' + p[1] + ':*'); linhas.push(v); linhas.push(''); }
+      else { faltando.push(p[1]); }
+    });
+    if(faltando.length){
+      linhas.push('---');
+      linhas.push('*Ainda falta:* ' + faltando.join(', '));
+    }
+    return linhas.join('\n');
+  }
+
+  document.addEventListener('input', function(e){
+    if(e.target.matches('input,textarea')) salvar();
+  });
+  document.addEventListener('change', function(e){
+    if(e.target.matches('input[type=radio]')) salvar();
+  });
+
+  document.getElementById('btnCopiar').addEventListener('click', function(){
+    var txt = montarTexto();
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){
+        toast('Copiado! Agora é só colar no WhatsApp');
+      }).catch(function(){ fallbackCopiar(txt); });
+    } else { fallbackCopiar(txt); }
+  });
+
+  function fallbackCopiar(txt){
+    var ta = document.createElement('textarea');
+    ta.value = txt; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); toast('Copiado!'); }
+    catch(e){ toast('Não consegui copiar — tira print da tela'); }
+    document.body.removeChild(ta);
+  }
+
+  document.getElementById('btnEnviar').addEventListener('click', function(){
+    var txt = montarTexto();
+    var enc = encodeURIComponent(txt);
+    if(enc.length > 1900){
+      fallbackCopiar(txt);
+      setTimeout(function(){
+        toast('Texto longo — copiei tudo. Cola no WhatsApp');
+        window.open('https://wa.me/' + TEL, '_blank');
+      }, 400);
+      return;
+    }
+    window.open('https://wa.me/' + TEL + '?text=' + enc, '_blank');
+  });
+
+  carregar();
+})();
+</script>
+<script src="js/site.js" defer></script>
+</body>
+</html>
