@@ -342,13 +342,6 @@ footer a:hover{color:var(--gold-lt)}
   display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   font-size:.8rem;color:#6B635A}
 
-/* ---------- Aviso de produção ----------
-   Está OCULTO para publicação. Para voltar a ver a faixa amarela
-   durante a edição, troque "none" por "block" na linha abaixo. */
-.dev-note{display:none;background:#FFF4D6;border-bottom:2px solid var(--gold);
-  padding:12px 24px;font-size:.82rem;color:#6B5518;text-align:center}
-.dev-note b{color:#4A3A10}
-
 /* ---------- Foto faltando (placeholder automático) + tratamento editorial ---------- */
 img{background:repeating-linear-gradient(45deg,var(--onyx-2) 0 12px,var(--onyx-3) 12px 24px);
   filter:saturate(.55) contrast(1.08) brightness(.98) sepia(.06)}
@@ -372,7 +365,7 @@ img{background:repeating-linear-gradient(45deg,var(--onyx-2) 0 12px,var(--onyx-3
 /* ---------- Impressão do site (para levar no papel) ---------- */
 @media print{
   @page{size:A4;margin:12mm}
-  header,.wa-float,.dev-note,.crumb,.burger{display:none!important}
+  header,.wa-float,.crumb,.burger{display:none!important}
   :root{--fg:#1C1815;--fg-2:#4A423C;--fg-3:#7A7167}
   body{background:#fff;font-size:10pt;line-height:1.5;color:var(--fg)}
   .wrap{max-width:100%;padding:0}
