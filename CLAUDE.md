@@ -53,53 +53,54 @@ da pele.
 **Preço:** nunca informar valores. A resposta é que varia conforme avaliação e queixa da
 paciente, e o caminho é agendar a avaliação.
 
-## Tarefa prioritária: remover as notas internas do código
-
-Nove páginas carregam um `<div class="dev-note">` logo depois do `<body>`, com anotações de
-trabalho da agência. O CSS deixa em `display:none`, então não aparecem no site — mas o texto
-está no HTML, legível no "exibir código-fonte", e **este repositório é público**.
-
-São elas: `botox.html`, `clinicas-esteticas-zona-norte.html`, `criolipolise.html`,
-`harmonizacao-facial.html`, `harmonizacao-glutea.html`, `mentoria.html`, `metodo-maf.html`,
-`metodo-rar.html`, `sobre.html`.
-
-O conteúdo inclui comentário comercial sobre a cliente e admissão de suposições — por exemplo
-que ela informou o nome do equipamento de forma diferente do nome real do fabricante, e que o
-prefixo do COREN foi assumido. Nada ofensivo, mas nada que deva ficar público.
-
-**O que fazer:** remover o `<div class="dev-note">…</div>` inteiro das nove páginas, e a regra
-`.dev-note` do `style.css` (linhas ~348-350) junto com a menção a `.dev-note` na regra de
-impressão (~linha 375). Não remova nada além disso. Antes de apagar, registre o conteúdo de
-cada nota em algum lugar fora do repositório — várias delas descrevem confirmações pendentes
-com a cliente que ainda importam.
-
 ## Pendências conhecidas
 
-Levantadas no cruzamento entre o site publicado e o briefing respondido pela clínica. Não
-resolva por conta própria — as duas primeiras dependem de confirmação com a cliente.
+Levantadas no cruzamento entre o site publicado e o briefing respondido pela clínica.
 
-1. **O procedimento de criolipólise tem três nomes.** A página `criolipolise.html` descreve o
-   equipamento CriUSculpt da HTM em detalhe técnico — o aparelho existe. Mas no briefing a
-   clínica escreveu *criomodelagem*, o card da home vende *criolipólise*, e o antes/depois
-   legenda *criomodelagem*. É divergência de nomenclatura, não procedimento inexistente.
-   Definido o nome com a cliente, ele precisa ficar igual no card, na página, na legenda da
-   foto e no rodapé.
-2. **Bronzeamento** aparece no site ("Também realizamos bronzeamento e outros protocolos
-   corporais", na home) e não está na lista da clínica nem entre os descontinuados.
-3. **Horário** — confirmado com a clínica, o site está correto. Não "corrigir".
-4. **Método MAF** — a palavra "diástase" não aparece em nenhuma das 11 páginas. É a informação
-   mais vendável do briefing e está fora do site.
-5. **Método R.A.R.** — o site descreve só para estrias; o uso real é mais amplo.
-6. **"Sem robô"** — o passo 1 de "Como funciona" promete atendimento sem robô, e o projeto
+### Resolvidas
+
+- **Notas internas (`dev-note`)** — removidas das nove páginas e do `style.css`. O conteúdo
+  de cada nota foi registrado fora do repositório antes de apagar.
+- **Nomenclatura da criomodelagem** — nome definido com a cliente: **Criomodelagem**. Aplicado
+  no card da home, no `<title>`, `<h1>`, meta description, FAQ, JSON-LD, legenda da foto,
+  textos de WhatsApp e no rodapé das 24 páginas. **O arquivo continua `criolipolise.html`** e o
+  canonical também — a URL é destino de anúncio e não pode ser renomeada. A menção em
+  minúscula em `clinicas-esteticas-zona-norte.html` (~linha 89) descreve a **Clínica Gil
+  Rodrigues**, outra clínica do guia regional, e por isso foi mantida como estava.
+- **Bronzeamento** — removido da home. A frase passou a "Também realizamos outros protocolos
+  corporais".
+- **Método MAF e diástase** — a página agora traz diástase no card de indicação, na FAQ e na
+  meta description, e o card da home menciona "auxilia no tratamento de diástase".
+- **Rodapé** — a categoria profissional "Enfermeira" foi acrescentada ao lado do nome e do
+  COREN-SP 289883 nas 24 páginas que têm rodapé (`formulario.html` não tem).
+
+### Abertas
+
+1. **Horário** — confirmado com a clínica, o site está correto. Não "corrigir".
+2. **Método R.A.R.** — o site descreve só para estrias; o uso real é mais amplo. Falta o texto
+   da cliente sobre o uso ampliado.
+3. **"Sem robô"** — o passo 1 de "Como funciona" promete atendimento sem robô, e o projeto
    prevê automação de WhatsApp e direct. Reescrever antes de a automação entrar no ar.
-7. **Rodapé** — falta a categoria profissional ("Enfermeira") ao lado do COREN.
-8. **12 procedimentos** que a clínica realiza não têm nenhuma menção no site: Space Shape,
-   tratamentos para celulite, pós-operatório, massagem relaxante, quiropraxia, Hipro, depilação
-   a laser, laser Lavieen, remoção de tatuagem, clareamento de axila e virilha, harmonização
-   íntima e aplicação de vasinhos. Outros 4 aparecem só de passagem, sem lugar próprio:
-   criomodelagem (legenda de foto), bioestimulador de colágeno, drenagem linfática, peeling e
-   microagulhamento. Quiropraxia, pós-operatório, drenagem e massagem são os de recorrência —
-   os que sustentam agenda.
+4. **Termos de autorização de imagem** — as fotos de `img/portfolio/` seguem sem termo assinado
+   (art. 4º, XIV). Não amplie o uso delas enquanto isso.
+5. **Páginas de procedimento ainda em rascunho.** Dez páginas existem, estão linkadas na home e
+   carregam `noindex,follow`: `space-shape`, `tratamento-de-celulite`, `hipro`,
+   `depilacao-a-laser`, `laser-lavieen`, `remocao-de-tatuagem`, `clareamento-axila-virilha`,
+   `harmonizacao-intima`, `aplicacao-de-vasinhos` e `aplicacao-de-enzimas`. Elas só têm hero e
+   CTA. Para sair do `noindex` cada uma precisa do conteúdo clínico da cliente — o que é, para
+   quem é, como é a sessão. **Não preencher por conta própria.**
+6. **Quatro páginas prioritárias sem conteúdo clínico.** `quiropraxia`, `pos-operatorio`,
+   `drenagem-linfatica` e `massagem-relaxante` já são páginas completas e indexáveis, mas o
+   conteúdo é logístico (avaliação, endereço, horário, política de preço, responsabilidade
+   técnica). Falta a parte clínica: o que cada atendimento faz, para quem é indicado e como é
+   a sessão. Nada disso foi inventado — está esperando a cliente.
+7. **Bioestimulador de colágeno, peeling químico e microagulhamento** aparecem só de passagem,
+   sem página nem card próprio.
+8. **"Dra." no rodapé** — a assinatura é "Dra. Maressa Guimarães — COREN-SP 289883 —
+   Enfermeira". Vale confirmar com a cliente se ela quer manter o "Dra." ou trocar por
+   "Enfermeira Maressa Guimarães", que é a forma mais segura sob a Resolução COFEN 554/2017.
+9. **E-mail no domínio próprio** (`@clinicamahguimaraes.com.br`) — depende do registro do
+   domínio, que ainda não aconteceu.
 
 ## Convenções técnicas
 
