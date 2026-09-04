@@ -6,7 +6,7 @@
   var btn = document.getElementById('themeToggle');
   if (!btn) return;
   btn.addEventListener('click', function () {
-    var current = document.documentElement.getAttribute('data-theme') || 'dark';
+    var current = document.documentElement.getAttribute('data-theme') || 'light';
     var next = current === 'light' ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', next);
     try { localStorage.setItem(KEY, next); } catch (e) {}

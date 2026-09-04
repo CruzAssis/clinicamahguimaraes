@@ -1,10 +1,10 @@
 /* ==========================================================================
    Clínica Mah Guimarães — Sistema visual
-   Maison noturna: onyx, rosé e dourado. Fotografia real como assinatura.
+   Rosé da marca no claro (padrão), onyx no escuro. Dourado é a assinatura nos dois.
    ========================================================================== */
 
 :root{
-  /* fundo — onyx domina o site (modo escuro = padrão da marca) */
+  /* fundo — onyx: agora o tema alternativo, não mais o padrão */
   --onyx:#15110E; --onyx-2:#1E1815; --onyx-3:#2A231D; --onyx-rgb:21,17,14;
   /* interlúdio claro — usado com moderação (FAQ, formulários) */
   --paper:#F6F1EA; --paper-2:#EFE6D9;
@@ -25,9 +25,15 @@
   --sans:'Jost','Segoe UI',system-ui,-apple-system,sans-serif;
 }
 
-/* ---------- Tema claro — mesma família de tokens, papéis invertidos ---------- */
+/* ---------- Tema claro (padrão) — rosé da marca, mesma família de tokens ----------
+   O rosé vem da placa da clínica: #E590B1. Aqui ele entra diluído, porque em
+   página de leitura longa o tom cheio cansa e derruba o contraste. O dourado
+   continua sendo a assinatura; o rosa é o papel, não a tinta.                    */
 [data-theme="light"]{
-  --onyx:#FAF7F2; --onyx-2:#FFFFFF; --onyx-3:#E8E0D3; --onyx-rgb:250,247,242;
+  --onyx:#FDF4F8; --onyx-2:#FFFFFF; --onyx-3:#F3DEE7; --onyx-rgb:253,244,248;
+  /* interlúdio — .sec-white desce meio tom para dar ritmo entre as faixas */
+  --paper:#FAEAF1; --paper-2:#F0D5E1;
+  --rose-glow:rgba(229,144,177,.28);
   --fg:#211C17; --fg-2:#4A423C; --fg-3:#7A7167;
   --accent:var(--gold-dk);
 }
@@ -175,6 +181,11 @@ header{position:sticky;top:0;z-index:100;background:rgba(var(--onyx-rgb),.88);
 /* ---------- Seções ---------- */
 section{padding:76px 0}
 .sec-cream{background:var(--onyx-2)}
+/* No claro, .sec-cream e .card caíam os dois em --onyx-2: card branco sobre faixa
+   branca, só a borda de 1px separando. Enquanto o escuro era o padrão isso quase
+   não aparecia; agora aparece. A faixa fica branca e o card assume o rosé.        */
+[data-theme="light"] .sec-cream .card{background:#FDF4F8;border-color:#F0D5E1}
+[data-theme="light"] .sec-cream .card:hover{border-color:var(--gold-dk)}
 .sec-dark{background:#0A0806;--onyx:#15110E;--onyx-2:#1E1815;--onyx-3:#2A231D;
   --fg:#F3EDE6;--fg-2:#C9C0B6;--fg-3:#A69C8F;--accent:#E0C08C}
 /* interlúdio claro — usado com moderação, herda a escala tipográfica pro modo claro */
