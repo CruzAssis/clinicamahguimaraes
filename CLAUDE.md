@@ -60,6 +60,12 @@ procedimento avaliado caso a caso. Não "corrigir" tirando o preço; ver pendên
 
 Levantadas no cruzamento entre o site publicado e o briefing respondido pela clínica.
 
+**Cobertura dos procedimentos (auditada em 19/09/2026).** Os 23 procedimentos da lista acima
+estão todos no site, em três níveis: **10 com página completa e indexável** (glútea, facial,
+botox, criomodelagem, estrias em `metodo-rar`, Space Shape, drenagem, pós-operatório, massagem
+e quiropraxia), **9 em página-rascunho com `noindex`** (pendência 4) e **4 sem página própria**
+(pendência 7). Nenhum está totalmente ausente do site.
+
 ### Resolvidas
 
 - **Notas internas (`dev-note`)** — removidas das nove páginas e do `style.css`. O conteúdo
@@ -94,6 +100,11 @@ Levantadas no cruzamento entre o site publicado e o briefing respondido pela cl�
   `Sitemap:`. Ambos apontam para `clinicamahguimaraes.com.br`, seguindo a convenção dos
   canonicals — **só passam a ser buscáveis quando o domínio for registrado**. Ao tirar uma
   página do `noindex`, acrescentar a URL ao `sitemap.xml`.
+- **Promessa de resultado no card do Collagen Lift** — a página facial dizia "efeito lifting sem
+  agulhas, com resultados visíveis desde as primeiras sessões". Prazo garantido é exatamente o
+  que a Resolução COFEN 554/2017 proíbe. Passou a "efeito lifting sem agulhas — protocolo em
+  sessões, definido na avaliação" em 19/09/2026. Os outros cards da mesma seção descrevem o que
+  o procedimento faz sem garantir prazo e foram mantidos como estavam.
 
 ### Abertas
 
@@ -123,13 +134,21 @@ Levantadas no cruzamento entre o site publicado e o briefing respondido pela cl�
    deliberadamente deixados de fora: sob a COFEN 554/2017 seriam promessa de resultado, e não
    entram sem decisão explícita da cliente. **O R$ 100 da sessão experimental também não tem
    confirmação da clínica** — quem definiu foi o dono do projeto.
-7. **Bioestimulador de colágeno, peeling químico e microagulhamento** aparecem só de passagem,
-   sem página nem card próprio.
-8. **"Dra." no rodapé** — a assinatura é "Dra. Maressa Guimarães — COREN-SP 289883 —
+7. **Quatro procedimentos da lista sem página própria.** `limpeza de pele` tem card grande na
+   home, mas o link vai para o WhatsApp e não para uma página. `bioestimulador de colágeno`,
+   `peeling químico` e `microagulhamento` existem só como card dentro de
+   `harmonizacao-facial.html`. Nenhum dos quatro tem URL própria para ranquear.
+8. **Quatro procedimentos no site que não estão na lista da clínica.** `harmonizacao-facial.html`
+   traz cards de **Skinbooster, PDRN, Collagen Lift e Peeling Anna Pegova**. Nenhum dos quatro
+   aparece em "Realiza" nem em "Não realiza mais" — vieram do site original e nunca passaram
+   pelo briefing. É o mesmo padrão do bronzeamento, que acabou removido. Perguntar à cliente se
+   os quatro seguem ativos: o que tiver sido descontinuado sai do ar, o que seguir entra na
+   lista de procedimentos deste arquivo.
+9. **"Dra." no rodapé** — a assinatura é "Dra. Maressa Guimarães — COREN-SP 289883 —
    Enfermeira". Vale confirmar com a cliente se ela quer manter o "Dra." ou trocar por
    "Enfermeira Maressa Guimarães", que é a forma mais segura sob a Resolução COFEN 554/2017.
-9. **E-mail no domínio próprio** (`@clinicamahguimaraes.com.br`) — depende do registro do
-   domínio, que ainda não aconteceu.
+10. **E-mail no domínio próprio** (`@clinicamahguimaraes.com.br`) — depende do registro do
+    domínio, que ainda não aconteceu.
 
 ## Convenções técnicas
 
