@@ -51,7 +51,10 @@ tratamento de diástase.
 da pele.
 
 **Preço:** nunca informar valores. A resposta é que varia conforme avaliação e queixa da
-paciente, e o caminho é agendar a avaliação.
+paciente, e o caminho é agendar a avaliação. **Única exceção:** a sessão experimental do Space
+Shape, publicada a R$ 100 em `space-shape-sessao-experimental.html` e no card da home por
+decisão expressa do dono do projeto em 03/09/2026 — é oferta promocional de valor fechado, não
+procedimento avaliado caso a caso. Não "corrigir" tirando o preço; ver pendência aberta 6.
 
 ## Pendências conhecidas
 
@@ -73,27 +76,53 @@ Levantadas no cruzamento entre o site publicado e o briefing respondido pela cl�
   meta description, e o card da home menciona "auxilia no tratamento de diástase".
 - **Rodapé** — a categoria profissional "Enfermeira" foi acrescentada ao lado do nome e do
   COREN-SP 289883 nas 24 páginas que têm rodapé (`formulario.html` não tem).
+- **Space Shape** — `space-shape.html` foi preenchida com o equipamento e saiu do `noindex`;
+  `space-shape-sessao-experimental.html` foi criada como página de vendas; as duas carregam
+  `video/space-shape-1.mp4` e o Space Shape entrou no menu e no rodapé das páginas. O que na
+  página veio do fabricante e não da clínica virou a pendência aberta 6.
+- **Tema rose da marca** — passou a ser o padrão do site; o dourado desceu para detalhe. O
+  script inline de tema é idêntico nas 26 páginas.
+- **"Sem robô"** — o passo 1 de "Como funciona" foi reescrito em 19/09/2026 e agora diz "Sem
+  formulário longo. Você conta o que te incomoda, a gente tira suas dúvidas e marca sua
+  avaliação no horário que der pra você." Não promete mais ausência de automação, então a
+  automação de WhatsApp e direct pode entrar no ar sem contradizer a home. As menções a "robô"
+  que restam estão em `formulario.html`, que é o briefing interno da cliente — são sobre o robô
+  que será construído e devem ficar.
+- **`sitemap.xml` e `robots.txt`** — sitemap criado em 19/09/2026 com as **16 páginas
+  indexáveis**; as que carregam `noindex` ficaram de fora de propósito (declarar no sitemap uma
+  URL marcada como `noindex` é sinal contraditório para o Google). O `robots.txt` ganhou a linha
+  `Sitemap:`. Ambos apontam para `clinicamahguimaraes.com.br`, seguindo a convenção dos
+  canonicals — **só passam a ser buscáveis quando o domínio for registrado**. Ao tirar uma
+  página do `noindex`, acrescentar a URL ao `sitemap.xml`.
 
 ### Abertas
 
 1. **Horário** — confirmado com a clínica, o site está correto. Não "corrigir".
 2. **Método R.A.R.** — o site descreve só para estrias; o uso real é mais amplo. Falta o texto
    da cliente sobre o uso ampliado.
-3. **"Sem robô"** — o passo 1 de "Como funciona" promete atendimento sem robô, e o projeto
-   prevê automação de WhatsApp e direct. Reescrever antes de a automação entrar no ar.
-4. **Termos de autorização de imagem** — as fotos de `img/portfolio/` seguem sem termo assinado
+3. **Termos de autorização de imagem** — as fotos de `img/portfolio/` seguem sem termo assinado
    (art. 4º, XIV). Não amplie o uso delas enquanto isso.
-5. **Páginas de procedimento ainda em rascunho.** Dez páginas existem, estão linkadas na home e
-   carregam `noindex,follow`: `space-shape`, `tratamento-de-celulite`, `hipro`,
-   `depilacao-a-laser`, `laser-lavieen`, `remocao-de-tatuagem`, `clareamento-axila-virilha`,
-   `harmonizacao-intima`, `aplicacao-de-vasinhos` e `aplicacao-de-enzimas`. Elas só têm hero e
-   CTA. Para sair do `noindex` cada uma precisa do conteúdo clínico da cliente — o que é, para
-   quem é, como é a sessão. **Não preencher por conta própria.**
-6. **Quatro páginas prioritárias sem conteúdo clínico.** `quiropraxia`, `pos-operatorio`,
+4. **Nove páginas de procedimento ainda em rascunho.** Existem, estão linkadas na home e
+   carregam `noindex,follow`: `tratamento-de-celulite`, `hipro`, `depilacao-a-laser`,
+   `laser-lavieen`, `remocao-de-tatuagem`, `clareamento-axila-virilha`, `harmonizacao-intima`,
+   `aplicacao-de-vasinhos` e `aplicacao-de-enzimas`. Elas só têm hero e CTA. Para sair do
+   `noindex` cada uma precisa do conteúdo clínico da cliente — o que é, para quem é, como é a
+   sessão. **Não preencher por conta própria.**
+5. **Quatro páginas prioritárias sem conteúdo clínico.** `quiropraxia`, `pos-operatorio`,
    `drenagem-linfatica` e `massagem-relaxante` já são páginas completas e indexáveis, mas o
    conteúdo é logístico (avaliação, endereço, horário, política de preço, responsabilidade
    técnica). Falta a parte clínica: o que cada atendimento faz, para quem é indicado e como é
    a sessão. Nada disso foi inventado — está esperando a cliente.
+6. **Space Shape: confirmar com a cliente o que veio do fabricante.** O conteúdo técnico da
+   página foi pesquisado no fabricante (i-motion Group Brasil), não veio da clínica. Pendem
+   confirmação: a lista de contraindicações a declarar na triagem (gestação, marca-passo ou
+   dispositivo eletrônico implantado, implantes metálicos, condição cardíaca), a afirmação de
+   que a bermuda de eletrodos faz parte do equipamento e a orientação de roupa de treino e
+   tênis, e o nome — a clínica diz "Space Shape" e o fabricante, "Shape Space". Os números de
+   resultado do fabricante (1.500 kcal por sessão, 75% mais gasto calórico que esteira) foram
+   deliberadamente deixados de fora: sob a COFEN 554/2017 seriam promessa de resultado, e não
+   entram sem decisão explícita da cliente. **O R$ 100 da sessão experimental também não tem
+   confirmação da clínica** — quem definiu foi o dono do projeto.
 7. **Bioestimulador de colágeno, peeling químico e microagulhamento** aparecem só de passagem,
    sem página nem card próprio.
 8. **"Dra." no rodapé** — a assinatura é "Dra. Maressa Guimarães — COREN-SP 289883 —
