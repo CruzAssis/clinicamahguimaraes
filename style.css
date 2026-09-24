@@ -114,6 +114,26 @@ header{position:sticky;top:0;z-index:100;background:rgba(var(--onyx-rgb),.88);
 .btn-ghost:hover{background:var(--rose);color:var(--on-accent);border-color:var(--rose)}
 .btn-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
 
+/* ---------- Instagram e rota no Maps ---------- */
+.social-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.social-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 17px;border-radius:100px;
+  text-decoration:none;font-size:.85rem;font-weight:500;line-height:1;color:var(--fg);
+  border:1.5px solid var(--rose-dk);background:transparent;
+  transition:transform .3s var(--ease),background .3s var(--ease),
+    border-color .3s var(--ease),color .3s var(--ease)}
+.social-btn svg{width:17px;height:17px;flex:none;stroke:currentColor;fill:none;stroke-width:1.7;
+  stroke-linecap:round;stroke-linejoin:round}
+.social-btn .ig-dot{fill:currentColor;stroke:none}
+.social-btn:hover{transform:translateY(-2px);background:var(--rose);
+  color:var(--on-accent);border-color:var(--rose)}
+/* gradiente da marca Instagram no hover — os três tons dão 5,1:1, 6,9:1 e 5,5:1 com texto branco */
+.social-btn-ig:hover{background:linear-gradient(45deg,#C13584,#8134AF,#515BD4);
+  border-color:transparent;color:#fff}
+/* o rodapé é escuro nos dois temas, então aqui a cor não pode vir dos tokens */
+footer .social-btn{color:#E4DAD2;border-color:rgba(242,180,204,.3)}
+footer .social-btn:hover{color:var(--on-accent)}
+footer .social-btn-ig:hover{color:#fff}
+
 /* ---------- Prova social ---------- */
 .trust{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
 .trust-item{background:var(--onyx-2);border:1px solid var(--onyx-3);border-radius:100px;
