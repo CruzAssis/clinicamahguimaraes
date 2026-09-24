@@ -39,7 +39,7 @@ python3 -m http.server 8000
 
 ## Publicar
 
-O site está hospedado na Vercel, projeto `clinica-mah-guimares`, sem integração com Git — os deploys foram feitos por CLI/upload. Conectando este repositório ao projeto na Vercel, cada `push` na branch principal passa a publicar sozinho.
+O site está hospedado na Vercel, projeto `clinica-mah-guimaraes`, conectado a este repositório: cada `push` na branch `main` publica sozinho, sem ambiente de staging.
 
 Domínio de destino: `clinicamahguimaraes.com.br` (ainda não registrado — o site responde hoje pela URL da Vercel).
 

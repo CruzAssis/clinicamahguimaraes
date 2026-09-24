@@ -169,6 +169,13 @@ e quiropraxia), **9 em página-rascunho com `noindex`** (pendência 4) e **4 sem
 
 ## Deploy
 
-Push na branch `main` publica automaticamente na Vercel (projeto `clinica-mah-guimares`).
+Push na branch `main` publica automaticamente na Vercel (projeto `clinica-mah-guimaraes`).
 Não há ambiente de staging. Toda alteração em `main` vai para a produção que a cliente e as
 pacientes veem.
+
+O projeto se chamava `clinica-mah-guimares` — o nome da clínica escrito errado, sem o segundo
+"a" — e foi renomeado em 24/09/2026. O endereço público mudou junto: todo link para
+`clinica-mah-guimares.vercel.app` divulgado antes disso parou de funcionar, então anúncio, bio
+do Instagram e Google Meu Negócio precisam apontar para o endereço novo. Nenhum arquivo do
+repositório referencia a URL da Vercel — os canonicals sempre apontaram para o domínio próprio,
+que quando for registrado torna esse endereço invisível para quem visita.
