@@ -105,6 +105,20 @@ e quiropraxia), **9 em página-rascunho com `noindex`** (pendência 4) e **4 sem
   que a Resolução COFEN 554/2017 proíbe. Passou a "efeito lifting sem agulhas — protocolo em
   sessões, definido na avaliação" em 19/09/2026. Os outros cards da mesma seção descrevem o que
   o procedimento faz sem garantir prazo e foram mantidos como estavam.
+- **Instagram e rota no Maps** — botão com o logo do Instagram e botão de rota no rodapé das 25
+  páginas e na seção "Onde estamos" da home. A rota usa `/maps/dir/?api=1&destination=<nome +
+  endereço>`, formato documentado que resolve para a ficha da clínica no Google (testado) e não
+  para um pin de endereço. Evitar a URL que a ficha compartilha: ela traz `entry` e `g_ep`, que
+  são parâmetros de sessão com data embutida. O logo é SVG inline, sem CDN nem arquivo.
+- **Coordenada do JSON-LD** — estava 492 metros fora do lugar (`-23.513184, -46.589156`,
+  aparentemente estimada). Corrigida para `-23.5089816, -46.5876552`, tirada da própria ficha
+  da clínica no Google. Entrou também o `hasMap`, que liga a página ao mapa do lugar.
+- **Assinatura do rodapé** — passou de "Dra. Maressa Guimarães — COREN-SP 289883 — Enfermeira"
+  para **"Enfermeira Maressa Guimarães — COREN-SP 289883"** nas 25 páginas, em 24/09/2026. As
+  duas formas cumprem a COFEN 554/2017 (nome + número + categoria); a nova não usa um título
+  que a resolução não prevê. O resto do site segue com "Dra." — ver pendência aberta 9.
+- **Link duplicado do Instagram no rodapé** — com a entrada do botão, o `<li>` "Instagram" da
+  lista "Clínica" virou repetição e foi removido das 25 páginas.
 
 ### Abertas
 
@@ -144,9 +158,11 @@ e quiropraxia), **9 em página-rascunho com `noindex`** (pendência 4) e **4 sem
    pelo briefing. É o mesmo padrão do bronzeamento, que acabou removido. Perguntar à cliente se
    os quatro seguem ativos: o que tiver sido descontinuado sai do ar, o que seguir entra na
    lista de procedimentos deste arquivo.
-9. **"Dra." no rodapé** — a assinatura é "Dra. Maressa Guimarães — COREN-SP 289883 —
-   Enfermeira". Vale confirmar com a cliente se ela quer manter o "Dra." ou trocar por
-   "Enfermeira Maressa Guimarães", que é a forma mais segura sob a Resolução COFEN 554/2017.
+9. **"Dra." no resto do site.** A assinatura do rodapé já foi resolvida (ver resolvidas), mas
+   o menu ("A Dra. Maressa"), a `sobre.html` e vários textos continuam tratando a responsável
+   técnica por "Dra.". Trocar isso é decisão de marca da cliente, não de compliance — a
+   exigência da COFEN 554/2017 (nome + COREN + categoria) já está cumprida no rodapé de todas
+   as páginas. Perguntar antes de mexer.
 10. **E-mail no domínio próprio** (`@clinicamahguimaraes.com.br`) — depende do registro do
     domínio, que ainda não aconteceu.
 
